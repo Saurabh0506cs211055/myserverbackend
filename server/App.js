@@ -19,7 +19,7 @@ import authRoutes from "./router/auth.routes.js"
 
 const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
 const __dirname = path.dirname(__filename); // 
-
+const port = process.env.Port || 8000
 
 dotenv.config();
 mongoose.set("strictQuery", true);
@@ -71,7 +71,7 @@ App.use("/api/messages", MessageRouter);
 App.use("/api/posts", PostRouter);
 App.use("/api/group",GroupRouter)
 
-App.listen(8001, () => {
+App.listen(port, () => {
   connect();
   console.log("app in listening");
 });
